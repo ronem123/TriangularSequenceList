@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:padding="20dp">
+
+
+    <ImageView
+        android:id="@+id/imageViewDog"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:src="@drawable/ic_empty_image"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewCat"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewCat"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:src="@drawable/ic_empty_image"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewDog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDog"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnPickDog"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:text="Pick dog image"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toStartOf="@+id/btnPickCat"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDog" />
+
+    <Button
+        android:id="@+id/btnPickCat"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:text="Pick cat image"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPickDog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnPickDog"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDog" />
+
+    <EditText
+        android:id="@+id/editTSNumber"
+        android:layout_width="match_parent"
+        android:inputType="numberSigned"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:hint="Enter No. of Triangular Sequence"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPickDog" />
+
+    <TextView
+        android:id="@+id/note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/note"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTSNumber" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:text="Submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/note" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
