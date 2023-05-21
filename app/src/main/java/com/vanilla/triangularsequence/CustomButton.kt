@@ -45,6 +45,7 @@ class CustomButton : Button, View.OnClickListener {
         if (mUserOnClickListener != null) {
             mUserOnClickListener!!.onClick(p0)
         }
+
     }
 
 
