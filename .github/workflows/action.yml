@@ -13,9 +13,8 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Run Lint check
+#      - name: Run Lint check
 #        uses: ./gradlew lintDebug
-        uses: echo Run lint check
 
 #      - name: Upload html lint check report
 #        uses: actions/upload-artifact@v2
