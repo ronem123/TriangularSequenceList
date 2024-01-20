@@ -1,5 +1,6 @@
 package com.vanilla.triangularsequence
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -61,6 +62,16 @@ class SecondFragment : Fragment() {
             )
         }
         return list
+    }
+
+    private fun showRationaleDialog(preMessage: String = "") {
+        val builder = AlertDialog.Builder(requireContext())
+        builder
+            .setMessage("$preMessage You must give access permission for the gallery")
+            .setPositiveButton("Give Permission") { d, _ ->
+                d.cancel()
+            }
+            .create().show()
     }
 
     private fun getTriangularSequence(n: Int): ArrayList<Int> {

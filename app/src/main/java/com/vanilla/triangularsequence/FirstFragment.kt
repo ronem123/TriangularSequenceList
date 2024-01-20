@@ -1,12 +1,8 @@
 package com.vanilla.triangularsequence
 
-import android.app.AlertDialog
-import android.content.DialogInterface
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +10,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.vanilla.triangularsequence.databinding.FragmentFirstBinding
@@ -44,14 +40,10 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initializeViews()
         setClickListeners()
 
     }
 
-    private fun initializeViews() {
-
-    }
 
     private fun showMessage(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
@@ -78,13 +70,11 @@ class FirstFragment : Fragment() {
 
         binding.btnPickDog.setOnClickListener {
             selectedImageType = ImageType.Dog
-//            checkGalleryPermissionAndLaunchPickerFor()
             openPickMediaForImage()
         }
 
         binding.btnPickCat.setOnClickListener {
             selectedImageType = ImageType.Cat
-//            checkGalleryPermissionAndLaunchPickerFor()
             openPickMediaForImage()
         }
     }
@@ -99,54 +89,17 @@ class FirstFragment : Fragment() {
     private val requestGalleryPermission =
         registerForActivityResult(
             ActivityResultContracts.RequestPermission()
-        ) { isGranted: Boolean ->
-//            if (isGranted) {
-//                showMessage("Permission Granted")
+        ) { _: Boolean ->
+
                 openPickMediaForImage()
-//            } else {
-//                showRationaleDialog("You have denied permission.")
-//            }
+
         }
 
-    private fun showRationaleDialog(preMessage: String = "") {
-        val builder = AlertDialog.Builder(requireContext())
-        builder
-            .setMessage("$preMessage You must give access permission for the gallery")
-            .setPositiveButton("Give Permission") { d, _ ->
-                openGalleryPermissionDialog()
-                d.cancel()
-            }
-            .create().show()
-    }
 
     private fun openGalleryPermissionDialog() {
         showMessage("Launching permission dialog")
         requestGalleryPermission.launch(galleryPermission)
     }
-
-    private fun checkGalleryPermissionAndLaunchPickerFor() {
-        when {
-            ContextCompat.checkSelfPermission(
-                requireContext(),
-                galleryPermission
-            ) == PackageManager.PERMISSION_GRANTED -> {
-                showMessage("Permission already Granted")
-                openPickMediaForImage()
-            }
-            shouldShowRequestPermissionRationale(galleryPermission) -> {
-                val builder = AlertDialog.Builder(requireContext())
-                builder
-                    .setMessage("You must give access permission for the gallery")
-                    .setPositiveButton("Give Permission") { d, _ ->
-                        openGalleryPermissionDialog()
-                        d.cancel()
-                    }
-                    .create().show()
-            }
-            else -> openGalleryPermissionDialog()
-        }
-    }
-
 
     private fun openPickMediaForImage() {
         pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
