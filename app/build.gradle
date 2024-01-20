@@ -46,7 +46,7 @@ android {
 //            property "sonar.host.url","http://localhost:9000"
             property "sonar.host.url","https://sonarcloud.io/"
             property "sonar.organization","ronem123"
-            property "sonar.login","sqp_adf2b1819baa501aca8d450c8964497d2cac12e2"
+//            property "sonar.login","sqp_adf2b1819baa501aca8d450c8964497d2cac12e2"
         }
     }
 
