@@ -39,7 +39,8 @@ android {
     sonarqube {
         properties {
             property "sonar.projectName","TriangularSequenceList"
-            property "sonar.projectKey","TriangularSequenceListKey"
+//            property "sonar.projectKey","TriangularSequenceListKey"
+            property "sonar.projectKey","ronem123_TriangularSequenceList"
             property "sonar.language","kotlin"
             property "sonar.sourceEncoding","UTF-8"
 //            property "sonar.host.url","http://localhost:9000"
