@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'androidx.navigation.safeargs.kotlin'
-    id "org.sonarqube" version "4.4.1.3373"
+//    id "org.sonarqube" version "4.4.1.3373"
 }
 
 android {
@@ -35,16 +35,16 @@ android {
         viewBinding true
     }
 
-    sonarqube {
-        properties {
-            property "sonar.projectName","TriangularSequenceList"
-            property "sonar.projectKey","TriangularSequenceListKey"
-            property "sonar.language","kotlin"
-            property "sonar.sourceEncoding","UTF-8"
-            property "sonar.host.url","http://localhost:9000"
-            property "sonar.login","sqp_adf2b1819baa501aca8d450c8964497d2cac12e2"
-        }
-    }
+//    sonarqube {
+//        properties {
+//            property "sonar.projectName","TriangularSequenceList"
+//            property "sonar.projectKey","TriangularSequenceListKey"
+//            property "sonar.language","kotlin"
+//            property "sonar.sourceEncoding","UTF-8"
+//            property "sonar.host.url","http://localhost:9000"
+//            property "sonar.login","sqp_adf2b1819baa501aca8d450c8964497d2cac12e2"
+//        }
+//    }
 
 }
 
