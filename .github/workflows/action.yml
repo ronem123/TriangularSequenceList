@@ -59,6 +59,7 @@ jobs:
 #
   static-code-analysis:
 #    needs: [instrumentation-test]
+    needs: [unit-test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
