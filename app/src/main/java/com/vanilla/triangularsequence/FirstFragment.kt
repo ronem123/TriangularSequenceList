@@ -78,12 +78,14 @@ class FirstFragment : Fragment() {
 
         binding.btnPickDog.setOnClickListener {
             selectedImageType = ImageType.Dog
-            checkGalleryPermissionAndLaunchPickerFor()
+//            checkGalleryPermissionAndLaunchPickerFor()
+            openPickMediaForImage()
         }
 
         binding.btnPickCat.setOnClickListener {
             selectedImageType = ImageType.Cat
-            checkGalleryPermissionAndLaunchPickerFor()
+//            checkGalleryPermissionAndLaunchPickerFor()
+            openPickMediaForImage()
         }
     }
 
@@ -98,12 +100,12 @@ class FirstFragment : Fragment() {
         registerForActivityResult(
             ActivityResultContracts.RequestPermission()
         ) { isGranted: Boolean ->
-            if (isGranted) {
-                showMessage("Permission Granted")
+//            if (isGranted) {
+//                showMessage("Permission Granted")
                 openPickMediaForImage()
-            } else {
-                showRationaleDialog("You have denied permission.")
-            }
+//            } else {
+//                showRationaleDialog("You have denied permission.")
+//            }
         }
 
     private fun showRationaleDialog(preMessage: String = "") {
