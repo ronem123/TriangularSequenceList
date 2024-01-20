@@ -96,11 +96,6 @@ class FirstFragment : Fragment() {
         }
 
 
-    private fun openGalleryPermissionDialog() {
-        showMessage("Launching permission dialog")
-        requestGalleryPermission.launch(galleryPermission)
-    }
-
     private fun openPickMediaForImage() {
         pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
     }
