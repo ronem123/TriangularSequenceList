@@ -13,17 +13,17 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-#      - name: Run Lint check
-#        uses: ./gradlew lintDebug
+  #      - name: Run Lint check
+  #        uses: ./gradlew lintDebug
 
-#      - name: Upload html lint check report
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: lint.html
-#          path: app/build/reports/lint-results-debug.html
+  #      - name: Upload html lint check report
+  #        uses: actions/upload-artifact@v2
+  #        with:
+  #          name: lint.html
+  #          path: app/build/reports/lint-results-debug.html
 
   unit-test:
-    needs: [lint]
+    needs: [ lint ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
@@ -38,28 +38,26 @@ jobs:
           name: unit_test_report
           path: app/build/reports/tests/testDebugUnitTest/
 
-#  instrumentation-test:
-#    needs: [unit-test]
-#    runs-on: macos-latest
-#    steps:
-#      - name: Checkout the code
-#        uses: actions/checkout@v2
-#
-#      - name: Run espresso tests
-#        uses: reactivecircus/android-emulator-runner@v2
-#        with:
-#          api-level: 29
-#          script: ./gradlew connectedCheck
-#
-#      - name: Upload test report
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: instrumentation_test_report
-#          path: app/build/reports/androidTests/connected/
-#
+  instrumentation-test:
+    needs: [ unit-test ]
+    runs-on: macos-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+  #      - name: Running espresso tests
+  #        uses: reactivecircus/android-emulator-runner@v2
+  #        with:
+  #          api-level: 29
+  #          script: ./gradlew connectedCheck
+  #
+  #      - name: Upload test report
+  #        uses: actions/upload-artifact@v2
+  #        with:
+  #          name: instrumentation_test_report
+  #          path: app/build/reports/androidTests/connected/
+  #
   static-code-analysis:
-#    needs: [instrumentation-test]
-    needs: [unit-test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
@@ -72,27 +70,25 @@ jobs:
 
       - name: SonarCloud Scan
         run: ./gradlew app:sonar -Dsonar.login=${{ secrets.SONAR_QUBE_TOKEN }}
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-#  package:
-#    needs: [static-code-analysis]
-#    name: Generating APK
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout the code
-#        uses: actions/checkout@v2
-#
-#      - name: Setup JDK version to 11
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 11
-#
-#      - name: Building debug APK
-#        run: ./gradlew assembleDebug --stacktrace
-#
-#      - name: Upload APK
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: triangular-sequence.apk
-#          path: app/build/outputs/apk/debug/app-debug.apk
+  package:
+    needs: [ static-code-analysis ]
+    name: Generating APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Setup JDK version to 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Building debug APK
+        run: ./gradlew assembleDebug --stacktrace
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: triangular-sequence.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
