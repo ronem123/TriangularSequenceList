@@ -128,4 +128,15 @@ class FirstFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    fun validateUserInput(input: String?) {
+        require(!input.isNullOrEmpty()) { "Input cannot be empty" }
+        require(input.matches("[a-zA-Z0-9]+".toRegex())) { "Input must contain only letters and numbers" }
+    }
+
+    fun validateDataInput(input: String?) {
+        require(!input.isNullOrEmpty()) { "Data cannot be empty" }
+        require(input.matches("[a-zA-Z0-9]+".toRegex())) { "Data must contain only letters and numbers" }
+    }
+
 }
