@@ -1,5 +1,6 @@
 package com.vanilla.triangularsequence
 
+import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -14,6 +15,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.vanilla.triangularsequence.databinding.FragmentFirstBinding
+import java.io.File
+import java.io.FileOutputStream
+import java.io.OutputStreamWriter
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -42,6 +46,7 @@ class FirstFragment : Fragment() {
 
         setClickListeners()
         codeSmellForIfElseMerge(ListData("", ""))
+        writeToFile(requireContext(),"filename","hello World")
 
     }
 
@@ -141,13 +146,56 @@ class FirstFragment : Fragment() {
     }
 
     private fun codeSmellForIfElseMerge(data: ListData?) {
-
         if (data != null) {
             Log.v("TAG", "data was not null")
             //perform some task
             if (data != null) {
                 Log.v("TAG", "data was not null again")
             }
+        }
+    }
+
+    private fun isAccessAvailable(_count: Int): Boolean {
+        var count = _count
+        if (count == 0) {
+            count++
+            return true
+        } else if (count == 2) {
+            count++
+            return true
+        }
+
+        return true
+    }
+
+    fun writeToFile(context: Context, fileName: String, content: String) {
+        try {
+            // Get the internal storage directory where you want to store the file
+            val directory = context.filesDir
+
+            // Create a File object with the specified directory and file name
+            val file = File(directory, fileName)
+
+            // Open a FileOutputStream to write to the file
+            val fileOutputStream = FileOutputStream(file)
+
+            // Create an OutputStreamWriter to write characters to the FileOutputStream
+            val outputStreamWriter = OutputStreamWriter(fileOutputStream)
+
+            // Write the content to the file
+            outputStreamWriter.write(content)
+
+//            // Close the OutputStreamWriter to ensure that all the data is written to the file
+//            outputStreamWriter.close()
+//
+//            // Optionally, you can also close the FileOutputStream
+//            fileOutputStream.close()
+
+            // File has been successfully written
+            // You can now read this file or perform other operations as needed
+        } catch (e: Exception) {
+            // Handle exceptions, such as IOException or FileNotFoundException
+            e.printStackTrace()
         }
     }
 }
