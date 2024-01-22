@@ -41,6 +41,7 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setClickListeners()
+        codeSmellForIfElseMerge(ListData("", ""))
 
     }
 
@@ -91,7 +92,7 @@ class FirstFragment : Fragment() {
             ActivityResultContracts.RequestPermission()
         ) { _: Boolean ->
 
-                openPickMediaForImage()
+            openPickMediaForImage()
 
         }
 
@@ -139,4 +140,14 @@ class FirstFragment : Fragment() {
         require(input.matches("[a-zA-Z0-9]+".toRegex())) { "Data must contain only letters and numbers" }
     }
 
+    private fun codeSmellForIfElseMerge(data: ListData?) {
+
+        if (data != null) {
+            Log.v("TAG", "data was not null")
+            //perform some task
+            if (data != null) {
+                Log.v("TAG", "data was not null again")
+            }
+        }
+    }
 }
