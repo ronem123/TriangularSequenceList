@@ -47,6 +47,10 @@ class FirstFragment : Fragment() {
         setClickListeners()
         codeSmellForIfElseMerge(ListData("", ""))
         writeToFile(requireContext(),"filename","hello World")
+        isAccessAvailable(2)
+
+        validateUserInput("HelloWorld")
+        validateDataInput("HelloWorld")
 
     }
 
@@ -168,7 +172,7 @@ class FirstFragment : Fragment() {
         return true
     }
 
-    fun writeToFile(context: Context, fileName: String, content: String) {
+   private fun writeToFile(context: Context, fileName: String, content: String) {
         try {
             // Get the internal storage directory where you want to store the file
             val directory = context.filesDir
@@ -185,14 +189,6 @@ class FirstFragment : Fragment() {
             // Write the content to the file
             outputStreamWriter.write(content)
 
-//            // Close the OutputStreamWriter to ensure that all the data is written to the file
-//            outputStreamWriter.close()
-//
-//            // Optionally, you can also close the FileOutputStream
-//            fileOutputStream.close()
-
-            // File has been successfully written
-            // You can now read this file or perform other operations as needed
         } catch (e: Exception) {
             // Handle exceptions, such as IOException or FileNotFoundException
             e.printStackTrace()
