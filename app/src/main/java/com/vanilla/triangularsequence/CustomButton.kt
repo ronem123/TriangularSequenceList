@@ -6,13 +6,14 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatButton
 
 
 /**
  * Created by Ram Mandal on 21/03/2023
  * @System: Apple M1 Pro
  */
-class CustomButton : Button, View.OnClickListener {
+class CustomButton : AppCompatButton, View.OnClickListener {
 
     private fun init(attrs: AttributeSet?) {
         setOnClickListener(this)
@@ -39,15 +40,15 @@ class CustomButton : Button, View.OnClickListener {
         }
     }
 
-    constructor(context: Context?) : super(context) {
+    constructor(context: Context) : super(context) {
         init(null)
     }
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         init(attrs)
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
         context,
         attrs,
         defStyleAttr
