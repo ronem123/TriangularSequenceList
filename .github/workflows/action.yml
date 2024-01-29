@@ -17,7 +17,7 @@ jobs:
         run: |
           pwd
           ls -al
-          ./gradlew lintDebug
+          ./gradlew lintDebug --scan
 
       - name: Upload html lint check report
         uses: actions/upload-artifact@v2
