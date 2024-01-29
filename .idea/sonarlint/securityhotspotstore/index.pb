@@ -16,3 +16,5 @@ p
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+p
+@app/src/main/java/com/vanilla/triangularsequence/MainActivity.kt,9/0/90474f294ca3c02cee64b6e5cf3b7fe4d1ed65b4
