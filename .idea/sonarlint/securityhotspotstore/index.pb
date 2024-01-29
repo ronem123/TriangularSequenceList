@@ -13,3 +13,6 @@ q
 Aapp/src/main/java/com/vanilla/triangularsequence/FirstFragment.kt,4/e/4e8c125d7428e7d64ada32f185f3e416c20f1784
 p
 @app/src/main/java/com/vanilla/triangularsequence/CustomButton.kt,9/3/93cec15f0a6f2aeb504cd029781d3c34413ad928
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
