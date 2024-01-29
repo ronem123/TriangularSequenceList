@@ -17,8 +17,8 @@ jobs:
         run: |
           pwd
           ls -al
-          ./gradlew lintDebug --scan
-          -Dlint.baselines.continue=true
+          ./gradlew lintDebug --scan --baseline lint-baseline.xml
+          ./gradlew lintDebug
 
       - name: Upload html lint check report
         uses: actions/upload-artifact@v2
