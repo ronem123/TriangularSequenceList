@@ -14,7 +14,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run Lint check
-        run: ./gradlew lintDebug
+        run: |
+          pwd
+          ls -al
+          ./gradlew lintDebug
 
       - name: Upload html lint check report
         uses: actions/upload-artifact@v2
