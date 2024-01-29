@@ -18,6 +18,7 @@ jobs:
           pwd
           ls -al
           ./gradlew lintDebug --scan
+          -Dlint.baselines.continue=true
 
       - name: Upload html lint check report
         uses: actions/upload-artifact@v2
