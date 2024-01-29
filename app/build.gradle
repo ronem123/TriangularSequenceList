@@ -36,23 +36,23 @@ android {
     }
 
     //used for local host
-    sonarqube {
-        properties {
-            property "sonar.projectName", "TriangularSequenceList"
-            property "sonar.sourceEncoding", "UTF-8"
-            property "sonar.language", "kotlin"
-
-//          remote sonar-que
-            property "sonar.projectKey", "ronem123_TriangularSequenceList"
-            property "sonar.host.url", "https://sonarcloud.io/"
-            property "sonar.organization", "ronem123"
-
-//            localhost:9000
-//            property "sonar.projectKey","TriangularSequenceListKey"
-//            property "sonar.host.url","http://localhost:9000"
-//            property "sonar.login","sqp_adf2b1819baa501aca8d450c8964497d2cac12e2"
-        }
-    }
+//    sonarqube {
+//        properties {
+//            property "sonar.projectName", "TriangularSequenceList"
+//            property "sonar.sourceEncoding", "UTF-8"
+//            property "sonar.language", "kotlin"
+//
+////          remote sonar-que
+//            property "sonar.projectKey", "ronem123_TriangularSequenceList"
+//            property "sonar.host.url", "https://sonarcloud.io/"
+//            property "sonar.organization", "ronem123"
+//
+////            localhost:9000
+////            property "sonar.projectKey","TriangularSequenceListKey"
+////            property "sonar.host.url","http://localhost:9000"
+////            property "sonar.login","sqp_adf2b1819baa501aca8d450c8964497d2cac12e2"
+//        }
+//    }
 
     lint {
         baseline = file("lint-baseline.xml")
