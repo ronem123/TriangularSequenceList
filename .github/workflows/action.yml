@@ -16,11 +16,11 @@ jobs:
       - name: Run Lint check
         uses: ./gradlew lintDebug
 
-      - name: Upload html lint check report
-        uses: actions/upload-artifact@v2
-        with:
-            name: lint.html
-            path: app/build/reports/lint-results-debug.html
+#      - name: Upload html lint check report
+#        uses: actions/upload-artifact@v2
+#        with:
+#            name: lint.html
+#            path: app/build/reports/lint-results-debug.html
 
 #  unit-test:
 #    needs: [ lint ]
